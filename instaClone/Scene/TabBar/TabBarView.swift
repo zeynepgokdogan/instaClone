@@ -14,7 +14,7 @@ struct TabBarView: View {
                 Image(systemName: "house")
             }
             Text("Search").tabItem {
-                Image(systemName: "magniifyingglass")
+                Image(systemName: "magnifyingglass")
             }
             Text("Upload Photo").tabItem {
                 Image(systemName: "plus.square")
@@ -22,11 +22,12 @@ struct TabBarView: View {
             Text("Notifications").tabItem {
                 Image(systemName: "heart")
             }
-            Text("Profile").tabItem {
-                Image(systemName: "profile")
+            ProfileView().tabItem{
+                Image(systemName: "person")
             }
         }
         .accentColor(.black)
+        .padding()
     }
 }
 

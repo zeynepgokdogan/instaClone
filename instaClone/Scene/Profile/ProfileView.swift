@@ -42,7 +42,7 @@ struct ProfileView: View {
                 }
                 Divider()
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 100)), count: 3), spacing: 10){
-                    ForEach(0..<90){_ in
+                    ForEach(0..<17){_ in
                         Image("post")
                             .resizable()
                             .frame(width: 100, height: 100)
@@ -52,6 +52,8 @@ struct ProfileView: View {
                 }
             }
         }
+        .navigationTitle("Profile")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
