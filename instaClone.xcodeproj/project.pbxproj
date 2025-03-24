@@ -35,16 +35,6 @@
 			path = instaClone;
 			sourceTree = "<group>";
 		};
-		8116CE2A2D917C6300D44E7B /* instaCloneTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = instaCloneTests;
-			sourceTree = "<group>";
-		};
-		8116CE342D917C6300D44E7B /* instaCloneUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = instaCloneUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				8116CE182D917C6100D44E7B /* instaClone */,
-				8116CE2A2D917C6300D44E7B /* instaCloneTests */,
-				8116CE342D917C6300D44E7B /* instaCloneUITests */,
 				8116CE172D917C6100D44E7B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				8116CE292D917C6300D44E7B /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				8116CE2A2D917C6300D44E7B /* instaCloneTests */,
-			);
 			name = instaCloneTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				8116CE332D917C6300D44E7B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				8116CE342D917C6300D44E7B /* instaCloneUITests */,
 			);
 			name = instaCloneUITests;
 			packageProductDependencies = (
