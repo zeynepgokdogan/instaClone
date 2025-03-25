@@ -11,11 +11,13 @@ struct LoginView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
                 Image("logo_text").resizable().frame(width: 250, height: 90).padding(.bottom, 20)
                 
                 CustomTextField(placeholder: "Enter your email")
                 CustomTextField(placeholder: "Password")
                 CustomButton(title: "Login")
+                
                 Button(action: {
                     
                 }) {
@@ -31,8 +33,9 @@ struct LoginView: View {
                     Text("OR").foregroundColor(.gray)
                     Rectangle().frame(height: 0.5)
                 }
-                Button(action: {
                 
+                Button(action: {
+                    
                 }) {
                     HStack{
                         Image("facebook").resizable().frame(width: 30, height: 30)
@@ -42,7 +45,19 @@ struct LoginView: View {
                     }
                 }
                 
-                
+                Spacer()
+                Divider()
+                HStack{
+                    Text("Don't have an account?").foregroundColor(.gray)
+                    Button(action: {
+                        AddEmail()
+                    }) {
+                        Text(.init("Sign Up"))
+                            .foregroundColor(.blue)
+                            .padding(.leading, 10)
+                        
+                    }
+                }
             }
         }
         .padding()
