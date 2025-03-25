@@ -18,7 +18,7 @@ struct CustomTextField: View {
             .autocorrectionDisabled(true)
             .padding()
             .background(.gray.opacity(0.1))
-            .cornerRadius(10)
+            .cornerRadius(7)
     }
 }
 

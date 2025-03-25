@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomButton: View {
-    @State private var title: String = ""
+    var title: String
     
     var body: some View {
         Button(action: { }) {
@@ -17,12 +17,13 @@ struct CustomButton: View {
         .frame(maxWidth: .infinity)
         .padding()
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
+            RoundedRectangle(cornerRadius: 7)
                 .stroke(Color.gray, lineWidth: 1)
         )
+        .foregroundStyle(.black)
     }
 }
 
 #Preview {
-    CustomButton("kdlşslş")
+    CustomButton(title: "Login") 
 }
