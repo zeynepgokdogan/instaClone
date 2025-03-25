@@ -10,10 +10,10 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView{
-            Text("Feed").tabItem {
+            FeedView().tabItem {
                 Image(systemName: "house")
             }
-            Text("Search").tabItem {
+            SearchView().tabItem {
                 Image(systemName: "magnifyingglass")
             }
             Text("Upload Photo").tabItem {
@@ -27,7 +27,6 @@ struct TabBarView: View {
             }
         }
         .accentColor(.black)
-        .padding()
     }
 }
 
