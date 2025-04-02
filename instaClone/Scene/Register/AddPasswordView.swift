@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct AddPasswordView: View {
+    @State private var isNextActive = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 20){
+            CustomTitle(text: "Add Your Password")
+            CustomSubtitle(text: "Your password will be used to protect your account")
+            CustomTextField(placeholder: "Enter your password" , isSecure: true)
+            CustomButton(title: "Create Account") {
+                isNextActive = true
+            }
+            NavigationLink(destination: TabBarView(), isActive: $isNextActive) {
+                EmptyView()
+            }
+        }
+        .padding()
     }
 }
 

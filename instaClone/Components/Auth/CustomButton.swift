@@ -9,9 +9,10 @@ import SwiftUI
 
 struct CustomButton: View {
     var title: String
+    var action: () -> Void
     
     var body: some View {
-        Button(action: { }) {
+        Button(action: action) {
             Text(title)
         }
         .frame(maxWidth: .infinity)
@@ -25,5 +26,7 @@ struct CustomButton: View {
 }
 
 #Preview {
-    CustomButton(title: "Login") 
+    CustomButton(title: "Test", action: {
+        print("Tapped")
+    })
 }

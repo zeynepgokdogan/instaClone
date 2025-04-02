@@ -10,15 +10,26 @@ import SwiftUI
 struct CustomTextField: View {
     let placeholder: String
     @State private var text: String = ""
-
+    var isSecure : Bool = false
     var body: some View {
-        TextField(placeholder, text: $text)
-            .keyboardType(.emailAddress)
-            .textInputAutocapitalization(.none)
-            .autocorrectionDisabled(true)
-            .padding()
-            .background(.gray.opacity(0.1))
-            .cornerRadius(7)
+        if isSecure {
+            SecureField(placeholder, text: $text)
+                .keyboardType(.emailAddress)
+                .textInputAutocapitalization(.none)
+                .autocorrectionDisabled(true)
+                .padding()
+                .background(.gray.opacity(0.1))
+                .cornerRadius(7)
+        }
+        else{
+            TextField(placeholder, text: $text)
+                .keyboardType(.emailAddress)
+                .textInputAutocapitalization(.none)
+                .autocorrectionDisabled(true)
+                .padding()
+                .background(.gray.opacity(0.1))
+                .cornerRadius(7)
+        }
     }
 }
 

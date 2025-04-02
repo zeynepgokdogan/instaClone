@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State private var isNextActive = false
     var body: some View {
         NavigationView {
             VStack {
@@ -16,8 +17,13 @@ struct LoginView: View {
                 
                 CustomTextField(placeholder: "Enter your email")
                 CustomTextField(placeholder: "Password")
-                CustomButton(title: "Login")
+                CustomButton(title: "Login") {
+                    isNextActive = true
+                }
                 
+                NavigationLink(destination: TabBarView(), isActive: $isNextActive) {
+                    EmptyView()
+                }
                 Button(action: {
                     
                 }) {
@@ -47,17 +53,14 @@ struct LoginView: View {
                 
                 Spacer()
                 Divider()
-                HStack{
-                    Text("Don't have an account?").foregroundColor(.gray)
-                    Button(action: {
-                        AddEmail()
-                    }) {
-                        Text(.init("Sign Up"))
-                            .foregroundColor(.blue)
-                            .padding(.leading, 10)
-                        
+                HStack {
+                        Text("Don't have an account?").foregroundColor(.gray)
+                        NavigationLink(destination: AddEmailView()) {
+                            Text("Sign Up")
+                                .foregroundColor(.blue)
+                                .padding(.leading, 10)
+                        }
                     }
-                }
             }
         }
         .padding()

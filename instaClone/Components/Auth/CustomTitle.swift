@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct CustomText: View {
+struct CustomTitle: View {
     var text: String
-    
     var body: some View {
         Text(text)
             .font(.system(size: 25, weight: .bold))
@@ -18,5 +17,5 @@ struct CustomText: View {
 }
 
 #Preview {
-    CustomText(text: "test")
+    CustomTitle(text: "test")
 }
