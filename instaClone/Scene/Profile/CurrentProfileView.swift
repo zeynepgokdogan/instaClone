@@ -1,14 +1,13 @@
 //
-//  ProfileView.swift
+//  CurrentUserProfile.swift
 //  instaClone
 //
-//  Created by Zeynep Gökdoğan on 24.03.2025.
+//  Created by Zeynep Gökdoğan on 3.04.2025.
 //
 
 import SwiftUI
 
-struct ProfileView: View {
-    let user: User
+struct CurrentUserProfile: View {
     var body: some View {
         
         ScrollView {
@@ -59,5 +58,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(user: User.MOCKUSER[1])
+    CurrentUserProfile()
 }
