@@ -8,55 +8,30 @@
 import SwiftUI
 
 struct CurrentUserProfile: View {
+    let user: User
+    var posts: [Post] {
+        Post.MOCKPOST.filter { $0.user?.username == user.username }
+    }
+    
     var body: some View {
-        
-        ScrollView {
-            VStack(spacing:10){
-                HStack(spacing: 30){
-                    Image("profile")
-                        .resizable()
-                        .frame(width: 100, height: 90)
-                        .clipShape(Circle())
-                        .padding()
-                    UserStatView(value: 10, title: "Posts")
-                    UserStatView(value: 460, title: "Followers")
-                    UserStatView(value: 540, title: "Following")
-                    
+        NavigationStack {
+            ScrollView {
+                VStack(){
+                    ProfileHeaderView(user: user)
+                    Divider()
+                    PostGridView(posts: posts)
                 }
-                VStack(alignment: .leading){
-                    Text("Zeynep Gökdoğan").font(.callout)
-                    Text("AYBU-CENG").font(.callout)
-                }
-                .frame(maxWidth: .infinity ,alignment: .leading)
-                .padding(.horizontal)
-                
-                Button{
-                    
-                }label: {
-                    Text("Edit Profile")
-                        .foregroundStyle(.black)
-                        .font(.subheadline)
-                        .fontWeight(.bold)
-                        .frame(width: 360, height: 32)
-                        .overlay(RoundedRectangle(cornerRadius: 6).stroke(.gray))
-                }
-                Divider()
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 100)), count: 3), spacing: 10){
-                    ForEach(0..<17){_ in
-                        Image("post")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Rectangle())
-                        
-                    }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image(systemName: "line.3.horizontal")
+                        .imageScale(.large)
                 }
             }
         }
-        .navigationTitle("Profile")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    CurrentUserProfile()
+    CurrentUserProfile(user: User.MOCKUSER[0])
 }

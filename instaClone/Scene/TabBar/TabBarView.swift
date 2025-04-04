@@ -32,7 +32,7 @@ struct TabBarView: View {
             Text("Notifications").tabItem {
                 Image(systemName: "heart")
             }
-            CurrentUserProfile().tabItem{
+            CurrentUserProfile(user: User.MOCKUSER[0]).tabItem{
                 Image(systemName: "person")
             }
         }

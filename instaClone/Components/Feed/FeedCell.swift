@@ -8,20 +8,26 @@
 import SwiftUI
 
 struct FeedCell: View {
+    let post: Post
     var body: some View {
         VStack(alignment: .leading){
+            
             HStack(spacing: 10){
-                Image("profile")
-                    .resizable()
-                    .frame(width: 30, height: 30, alignment: .leading)
-                    .clipShape(Circle())
-                Text("z.gokd").font(.footnote)
+                if let user = post.user {
+                    Image(user.profilePictureUrl ?? "")
+                        .resizable()
+                        .frame(width: 30, height: 30, alignment: .leading)
+                        .clipShape(Circle())
+                    Text(user.username).font(.footnote)
+                }
+         
             }
-            .padding()
-            Image("post")
+            
+            Image(post.imageUrl)
                 .resizable()
                 .frame(height: 400)
                 .clipped()
+            
             VStack(alignment: .leading){
                 HStack
                 {
@@ -31,10 +37,10 @@ struct FeedCell: View {
                 }
                 .padding(.top, 4)
                 .padding(.bottom, 4)
-                Text("300 Likes").fontWeight(.bold).font(.footnote)
+                Text("\(post.likes) likes").fontWeight(.bold).font(.footnote)
                 HStack{
-                    Text("z.gokd ").fontWeight(.bold).font(.footnote) +
-                    Text("Lorem ipsum dolor sit amet consectetur adipisicing elit.").font(.footnote)
+                    Text("\(post.user?.username ?? "")").fontWeight(.bold).font(.footnote) +
+                    Text("\(post.caption)").font(.footnote)
                 }
                 .padding(.bottom, 4)
                 Text("14h ago").font(.footnote).foregroundStyle(.gray)
@@ -45,5 +51,5 @@ struct FeedCell: View {
 }
 
 #Preview {
-    FeedCell()
+    FeedCell(post: Post.MOCKPOST[0])
 }

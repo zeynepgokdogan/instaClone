@@ -13,7 +13,7 @@ struct User:  Identifiable,Hashable, Codable {
     var fullName: String?
     var profilePictureUrl: String?
     let email: String
-    var bio: String
+    var bio: String?
 }
 
 extension User{
