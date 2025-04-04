@@ -22,7 +22,7 @@ extension User{
             id: UUID().uuidString,
             username: "coolcat99",
             fullName: "Michael Young",
-            profilePictureUrl: "michael",
+            profilePictureUrl: "user1",
             email: "michael.young@example.com",
             bio: "Cat lover, coffee addict, just vibing in the digital world."
         ),
@@ -30,7 +30,7 @@ extension User{
             id: UUID().uuidString,
             username: "luna_dreams",
             fullName: "Ella Rivers",
-            profilePictureUrl: "ella",
+            profilePictureUrl: "user2",
             email: "ella.rivers@example.com",
             bio: "Dreamer and writer, always chasing stories under the moonlight."
         ),
@@ -38,7 +38,7 @@ extension User{
             id: UUID().uuidString,
             username: "techguy42",
             fullName: "Alex Knight",
-            profilePictureUrl: "alex",
+            profilePictureUrl: "user3",
             email: "alex.knight@example.com",
             bio: "Tech enthusiast who can't code without coffee. Building digital things daily."
         ),
@@ -46,7 +46,7 @@ extension User{
             id: UUID().uuidString,
             username: "artbyzee",
             fullName: "Zee Monroe",
-            profilePictureUrl: "zee",
+            profilePictureUrl: "user4",
             email: "zee.monroe@example.com",
             bio: "Artist who paints dreams with color. Every brushstroke tells a story."
         ),
@@ -54,7 +54,7 @@ extension User{
             id: UUID().uuidString,
             username: "george_travels",
             fullName: "George Walker",
-            profilePictureUrl: "george",
+            profilePictureUrl: "user5",
             email: "george.walker@example.com",
             bio: "A traveler with a passion for exploring the world, one trip at a time."
         )
