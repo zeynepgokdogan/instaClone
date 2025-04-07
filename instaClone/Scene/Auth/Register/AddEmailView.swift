@@ -36,6 +36,9 @@ struct AddEmailView: View {
             )
         }
         .padding()
+        .onAppear {
+            viewModel.errorMessage = ""
+        }
     }
 }
 

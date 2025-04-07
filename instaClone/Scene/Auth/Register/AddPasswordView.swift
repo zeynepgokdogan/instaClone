@@ -33,6 +33,9 @@ struct AddPasswordView: View {
             }
         }
         .padding()
+        .onAppear {
+            viewModel.errorMessage = ""
+        }
     }
 }
 

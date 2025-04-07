@@ -34,6 +34,9 @@ struct AddUsernameView: View {
             }
         }
         .padding()
+        .onAppear {
+            viewModel.errorMessage = ""
+        }
     }
 }
 
