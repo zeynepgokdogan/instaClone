@@ -28,13 +28,13 @@ struct AddPasswordView: View {
                 }
             }
             
-            NavigationLink(destination: TabBarView(), isActive: $isNextActive) {
-                EmptyView()
-            }
         }
         .padding()
         .onAppear {
             viewModel.errorMessage = ""
+        }
+        .navigationDestination(isPresented: $isNextActive) {
+            TabBarView()
         }
     }
 }

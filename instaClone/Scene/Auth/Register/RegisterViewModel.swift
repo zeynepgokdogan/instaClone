@@ -34,7 +34,7 @@ class RegisterViewModel: ObservableObject{
             errorMessage = "Please enter your email."
             return false
         }
-        if !email.contains("@") || !email.contains(".") {
+        if !email.contains("@") || !email.contains(".com") {
             errorMessage = "Please enter a valid email."
             return false
         }

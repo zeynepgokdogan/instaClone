@@ -9,19 +9,32 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var isNextActive = false
-    @StateObject private var registerViewModel = RegisterViewModel()
     @StateObject var viewModel = LoginViewModel()
+    @StateObject private var registerViewModel = RegisterViewModel()
+    
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Spacer()
                 Image("logo_text").resizable().frame(width: 250, height: 90).padding(.bottom, 20)
                 
                 CustomTextField(placeholder: "Enter your email", text: $viewModel.email)
-                CustomTextField(placeholder: "Password", text: $viewModel.password)
+                CustomTextField(placeholder: "Password", text: $viewModel.password, isSecure: true)
+                
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(.red)
+                        .font(.caption)
+                }
+                
                 CustomButton(title: "Login") {
-                    isNextActive = true
+                    Task {
+                        await viewModel.signIn()
+                        if viewModel.errorMessage.isEmpty {
+                            isNextActive = true
+                        }
+                    }
                 }
                 
                 NavigationLink(destination: TabBarView(), isActive: $isNextActive) {
@@ -57,16 +70,19 @@ struct LoginView: View {
                 Spacer()
                 Divider()
                 HStack {
-                        Text("Don't have an account?").foregroundColor(.gray)
-                    NavigationLink(destination: AddEmailView(viewModel: registerViewModel)) {
-                            Text("Sign Up")
-                                .foregroundColor(.blue)
-                                .padding(.leading, 10)
-                        }
+                    Text("Don't have an account?").foregroundColor(.gray)
+                    NavigationLink(destination: AddUsernameView(viewModel: registerViewModel)) {
+                        Text("Sign Up")
+                            .foregroundColor(.blue)
+                            .padding(.leading, 10)
                     }
+                }
             }
         }
         .padding()
+        .navigationDestination(isPresented: $isNextActive) {
+            TabBarView()
+        }
     }
 }
 

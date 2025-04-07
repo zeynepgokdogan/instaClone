@@ -16,7 +16,11 @@ struct AddUsernameView: View {
             CustomTitle(text: "Add Your Username")
             CustomSubtitle(text: "Your username will be used to identify you")
             CustomTextField(placeholder: "Enter the username" , text: $viewModel.username)
-           
+            if !viewModel.errorMessage.isEmpty {
+                Text(viewModel.errorMessage)
+                    .foregroundColor(.red)
+                    .font(.caption)
+            }
             
             CustomButton(title: "Next") {
                 if viewModel.validateUsername() {
@@ -24,18 +28,14 @@ struct AddUsernameView: View {
                 }
             }
             
-            if !viewModel.errorMessage.isEmpty {
-                Text(viewModel.errorMessage)
-                    .foregroundColor(.red)
-                    .font(.caption)
-            }
-            NavigationLink(destination: AddPasswordView(viewModel: RegisterViewModel()), isActive: $isNextActive) {
-                EmptyView()
-            }
+           
         }
         .padding()
         .onAppear {
             viewModel.errorMessage = ""
+        }
+        .navigationDestination(isPresented: $isNextActive) {
+            AddEmailView(viewModel: viewModel)
         }
     }
 }
