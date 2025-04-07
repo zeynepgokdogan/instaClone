@@ -9,14 +9,17 @@ import SwiftUI
 
 struct LoginView: View {
     @State private var isNextActive = false
+    @StateObject private var registerViewModel = RegisterViewModel()
+    @StateObject var viewModel = LoginViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
                 Image("logo_text").resizable().frame(width: 250, height: 90).padding(.bottom, 20)
                 
-                CustomTextField(placeholder: "Enter your email")
-                CustomTextField(placeholder: "Password")
+                CustomTextField(placeholder: "Enter your email", text: $viewModel.email)
+                CustomTextField(placeholder: "Password", text: $viewModel.password)
                 CustomButton(title: "Login") {
                     isNextActive = true
                 }
@@ -55,7 +58,7 @@ struct LoginView: View {
                 Divider()
                 HStack {
                         Text("Don't have an account?").foregroundColor(.gray)
-                        NavigationLink(destination: AddEmailView()) {
+                    NavigationLink(destination: AddEmailView(viewModel: registerViewModel)) {
                             Text("Sign Up")
                                 .foregroundColor(.blue)
                                 .padding(.leading, 10)

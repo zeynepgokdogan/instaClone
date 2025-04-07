@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomTextField: View {
     let placeholder: String
-    @State private var text: String = ""
+    @Binding var text: String
     var isSecure : Bool = false
     var body: some View {
         if isSecure {
@@ -31,9 +31,5 @@ struct CustomTextField: View {
                 .cornerRadius(7)
         }
     }
-}
-
-#Preview {
-    CustomTextField(placeholder: "Enter your email")
 }
 
