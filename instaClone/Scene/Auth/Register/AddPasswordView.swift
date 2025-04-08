@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AddPasswordView: View {
-    @State private var isNextActive = false
-    @ObservedObject var viewModel : RegisterViewModel
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: RegisterViewModel
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 20){
@@ -24,10 +25,15 @@ struct AddPasswordView: View {
                 }
                 
                 CustomButton(title: "Create Account") {
-                    if viewModel.validatePassword() {
-                        isNextActive = true
+                    Task {
+                        do {
+                            try await viewModel.createUser()
+                        } catch {
+                            print("Error creating user: \(error.localizedDescription)")
+                        }
                     }
                 }
+
                 
             }
             .padding()
@@ -35,13 +41,9 @@ struct AddPasswordView: View {
                 viewModel.errorMessage = ""
             }
         }
-        .fullScreenCover(isPresented: $isNextActive) {
-            TabBarView()
-        }
-        
     }
 }
 
 #Preview {
-    AddPasswordView(viewModel: RegisterViewModel())
+    AddPasswordView().environmentObject(RegisterViewModel())
 }

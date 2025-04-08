@@ -27,6 +27,9 @@ class RegisterViewModel: ObservableObject{
                 email: email,
                 password: password
             )
+        username = ""
+        email = ""
+        password = ""
     }
     
     func validateEmail() -> Bool {

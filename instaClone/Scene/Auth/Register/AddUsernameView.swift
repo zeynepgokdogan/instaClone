@@ -9,7 +9,8 @@ import SwiftUI
 
 struct AddUsernameView: View {
     @State private var isNextActive = false
-    @ObservedObject var viewModel: RegisterViewModel
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: RegisterViewModel
     
     var body: some View {
         VStack(spacing: 20){
@@ -35,11 +36,12 @@ struct AddUsernameView: View {
             viewModel.errorMessage = ""
         }
         .navigationDestination(isPresented: $isNextActive) {
-            AddEmailView(viewModel: viewModel)
+            AddEmailView(viewModel: _viewModel)
         }
     }
 }
 
 #Preview {
-    AddUsernameView(viewModel: RegisterViewModel())
+    AddUsernameView()
+        .environmentObject(RegisterViewModel())
 }

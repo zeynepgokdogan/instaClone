@@ -8,32 +8,45 @@
 import SwiftUI
 
 struct TabBarView: View {
-    init() {
-          let appearance = UITabBarAppearance()
-          appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.white
-          
-          UITabBar.appearance().standardAppearance = appearance
-          if #available(iOS 15.0, *) {
-              UITabBar.appearance().scrollEdgeAppearance = appearance
-          }
-      }
+    let user: User
+
     var body: some View {
         TabView{
-            FeedView().tabItem {
-                Image(systemName: "house")
+            FeedView()
+                .tabItem {
+                    Image(
+                        systemName: "house"
+                    )
+                }
+            SearchView()
+                .tabItem {
+                    Image(
+                        systemName: "magnifyingglass"
+                    )
+                }
+            Text(
+                "Upload Photo"
+            )
+            .tabItem {
+                Image(
+                    systemName: "plus.square"
+                )
             }
-            SearchView().tabItem {
-                Image(systemName: "magnifyingglass")
+            Text(
+                "Notifications"
+            )
+            .tabItem {
+                Image(
+                    systemName: "heart"
+                )
             }
-            Text("Upload Photo").tabItem {
-                Image(systemName: "plus.square")
-            }
-            Text("Notifications").tabItem {
-                Image(systemName: "heart")
-            }
-            CurrentUserProfile(user: User.MOCKUSER[0]).tabItem{
-                Image(systemName: "person")
+            CurrentUserProfile(
+                user: user
+            )
+            .tabItem{
+                Image(
+                    systemName: "person"
+                )
             }
         }
         .accentColor(.black)
@@ -42,5 +55,5 @@ struct TabBarView: View {
 }
 
 #Preview {
-    TabBarView()
+    TabBarView(user: User.MOCKUSER[0])
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var isNextActive = false
     @StateObject var viewModel = LoginViewModel()
     @StateObject private var registerViewModel = RegisterViewModel()
     
@@ -31,14 +30,7 @@ struct LoginView: View {
                 CustomButton(title: "Login") {
                     Task {
                         await viewModel.signIn()
-                        if viewModel.errorMessage.isEmpty {
-                            isNextActive = true
-                        }
                     }
-                }
-                
-                NavigationLink(destination: TabBarView(), isActive: $isNextActive) {
-                    EmptyView()
                 }
                 Button(action: {
                     
@@ -79,9 +71,6 @@ struct LoginView: View {
                 }
             }
             .padding()
-        }
-        .navigationDestination(isPresented: $isNextActive) {
-            TabBarView()
         }
     }
 }

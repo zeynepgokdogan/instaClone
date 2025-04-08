@@ -17,8 +17,8 @@ struct ContentView: View {
                 LoginView()
                     .environmentObject(RegisterViewModel())
             }
-            else{
-                TabBarView()
+            else if let currentUser = viewModel.currentUser{
+                TabBarView(user: currentUser)
             }
         }
     }

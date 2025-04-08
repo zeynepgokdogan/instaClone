@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AddEmailView: View {
-    @ObservedObject var viewModel: RegisterViewModel
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: RegisterViewModel
     @State private var isNextActive = false
     
     var body: some View {
@@ -40,5 +41,5 @@ struct AddEmailView: View {
 }
 
 #Preview {
-    AddEmailView(viewModel: RegisterViewModel())
+    AddEmailView().environmentObject(RegisterViewModel())
 }

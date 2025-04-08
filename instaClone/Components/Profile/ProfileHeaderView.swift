@@ -38,6 +38,7 @@ struct ProfileHeaderView: View {
                         .foregroundColor(.primary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
+                Text(user.username)
             }
             .padding(.horizontal)
             .padding(.top, 2)
