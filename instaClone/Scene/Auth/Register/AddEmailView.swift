@@ -35,7 +35,7 @@ struct AddEmailView: View {
             viewModel.errorMessage = ""
         }
         .navigationDestination(isPresented: $isNextActive) {
-            AddPasswordView(viewModel: viewModel)
+            AddPasswordView().environmentObject(viewModel)
         }
     }
 }

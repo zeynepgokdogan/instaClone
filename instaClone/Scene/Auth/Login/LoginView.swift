@@ -63,11 +63,12 @@ struct LoginView: View {
                 Divider()
                 HStack {
                     Text("Don't have an account?").foregroundColor(.gray)
-                    NavigationLink(destination: AddUsernameView(viewModel: registerViewModel)) {
+                    NavigationLink(destination: AddUsernameView().environmentObject(registerViewModel)) {
                         Text("Sign Up")
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
                     }
+
                 }
             }
             .padding()
