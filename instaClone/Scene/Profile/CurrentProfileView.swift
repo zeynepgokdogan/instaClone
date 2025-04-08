@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CurrentUserProfile: View {
+    @StateObject var viewModel = ProfileViewModel()
     let user: User
     var posts: [Post] {
         Post.MOCKPOST.filter { $0.user?.username == user.username }
@@ -24,8 +25,14 @@ struct CurrentUserProfile: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Image(systemName: "line.3.horizontal")
-                        .imageScale(.large)
+                    Menu {
+                        Button("Sign Out", role: .destructive) {
+                            viewModel.signOut()
+                        }
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
+                            .imageScale(.large)
+                    }
                 }
             }
         }

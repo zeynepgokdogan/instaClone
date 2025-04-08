@@ -40,15 +40,15 @@ class AuthService{
     }
     
     
-    func signOut() async throws{
-        do{
-            let result  = try await Auth.auth().signOut()
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
             self.userSession = nil
-        }
-        catch{
-            print(error.localizedDescription)
+        } catch {
+            print("Error signing out: \(error.localizedDescription)")
         }
     }
+
     
     
     func uploadUserData(uid: String, username: String, email: String) async{

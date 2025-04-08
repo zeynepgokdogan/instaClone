@@ -78,8 +78,8 @@ struct LoginView: View {
                     }
                 }
             }
+            .padding()
         }
-        .padding()
         .navigationDestination(isPresented: $isNextActive) {
             TabBarView()
         }
