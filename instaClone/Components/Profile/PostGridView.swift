@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PostGridView: View {
-    var posts: [Post]
+    var posts: [PostModel]
     
     private let gridItems: [GridItem] = Array(repeating: GridItem(.flexible(), spacing: 4), count: 3)
     
@@ -29,5 +29,5 @@ struct PostGridView: View {
 
 
 #Preview {
-    PostGridView(posts: Post.MOCKPOST)
+    PostGridView(posts: PostModel.MOCKPOST)
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
-    let user: User
+    let user: UserModel
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -64,5 +64,5 @@ struct ProfileHeaderView: View {
 
 
 #Preview {
-    ProfileHeaderView(user: User.MOCKUSER[0])
+    ProfileHeaderView(user: UserModel.MOCKUSER[0])
 }

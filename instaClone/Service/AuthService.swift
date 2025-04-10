@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class AuthService{
     @Published var userSession: FirebaseAuth.User?
-    @Published var currentUser: User?
+    @Published var currentUser: UserModel?
     
     static let shared = AuthService()
     
@@ -58,7 +58,7 @@ class AuthService{
     
     
     func uploadUserData(uid: String, username: String, email: String) async{
-        let user = User(id: uid, username: username, email: email)
+        let user = UserModel(id: uid, username: username, email: email)
         guard let encodedUser = try? Firestore.Encoder().encode(user) else {return}
         try? await
         Firestore.firestore().collection("users").document(user.id).setData(encodedUser)
@@ -69,7 +69,7 @@ class AuthService{
         self.userSession = Auth.auth().currentUser
         guard let currentUid = Auth.auth().currentUser?.uid else {return}
         let snapshot = try await Firestore.firestore().collection("users").document(currentUid).getDocument()
-        let user = try? snapshot.data(as: User.self)
+        let user = try? snapshot.data(as: UserModel.self)
         
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeedCell: View {
-    let post: Post
+    let post: PostModel
     var body: some View {
         VStack(alignment: .leading){
             
@@ -20,8 +20,8 @@ struct FeedCell: View {
                         .clipShape(Circle())
                     Text(user.username).font(.footnote)
                 }
-         
-            }
+                
+            }.padding(.horizontal)
             
             Image(post.imageUrl)
                 .resizable()
@@ -45,11 +45,11 @@ struct FeedCell: View {
                 .padding(.bottom, 4)
                 Text("14h ago").font(.footnote).foregroundStyle(.gray)
             }
-            .padding(.leading)
+            .padding(.horizontal)
         }
     }
 }
 
 #Preview {
-    FeedCell(post: Post.MOCKPOST[0])
+    FeedCell(post: PostModel.MOCKPOST[0])
 }

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ProfileView: View {
-    let user: User
+    let user: UserModel
     
-    var posts: [Post] {
-        Post.MOCKPOST.filter { $0.user?.username == user.username }
+    var posts: [PostModel] {
+        PostModel.MOCKPOST.filter { $0.user?.username == user.username }
     }
     
     var body: some View {
@@ -28,5 +28,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView(user: User.MOCKUSER[1])
+    ProfileView(user: UserModel.MOCKUSER[1])
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User:  Identifiable,Hashable, Codable {
+struct UserModel:  Identifiable,Hashable, Codable {
     let id: String
     var username: String
     var fullName: String?
@@ -16,8 +16,8 @@ struct User:  Identifiable,Hashable, Codable {
     var bio: String?
 }
 
-extension User{
-    static var MOCKUSER: [User] = [
+extension UserModel{
+    static var MOCKUSER: [UserModel] = [
         .init(
             id: UUID().uuidString,
             username: "coolcat99",

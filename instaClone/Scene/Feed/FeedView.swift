@@ -6,7 +6,7 @@ struct FeedView: View {
         NavigationStack {
             ScrollView {
                 LazyVStack {
-                    ForEach(Post.MOCKPOST) { post in
+                    ForEach(PostModel.MOCKPOST) { post in
                         FeedCell(post: post)
                     }
                 }
@@ -22,6 +22,7 @@ struct FeedView: View {
                         .imageScale(.large)
                 }
             }
+            .padding(.vertical)
         }
     }
 }
