@@ -34,16 +34,19 @@ class AuthService{
     }
     
     @MainActor
-    func createUser (username: String, email: String, password: String) async throws{
-        do{
+    func createUser(username: String, email: String, password: String) async throws {
+        do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             self.userSession = result.user
             await uploadUserData(uid: result.user.uid, username: username, email: email)
-        } catch{
+            try await loadUserData()
+        } catch {
             print("Error creating user: \(error.localizedDescription)")
+            throw error
         }
     }
-    
+
+
     
     func signOut() {
         do {
@@ -65,11 +68,13 @@ class AuthService{
     }
     
     @MainActor
-    func loadUserData() async throws{
+    func loadUserData() async throws {
         self.userSession = Auth.auth().currentUser
-        guard let currentUid = Auth.auth().currentUser?.uid else {return}
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
         let snapshot = try await Firestore.firestore().collection("users").document(currentUid).getDocument()
         let user = try? snapshot.data(as: UserModel.self)
-        
+        self.currentUser = user
     }
+
+
 }

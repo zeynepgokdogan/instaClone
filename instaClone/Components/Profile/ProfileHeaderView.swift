@@ -10,10 +10,18 @@ import SwiftUI
 struct ProfileHeaderView: View {
     let user: UserModel
 
+    var profileImageName: String {
+        if let url = user.profilePictureUrl, !url.isEmpty {
+            return url
+        } else {
+            return "avatar"
+        }
+    }
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack(spacing: 30) {
-                Image(user.profilePictureUrl ?? "")
+                Image(profileImageName)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 90, height: 90)
@@ -61,7 +69,6 @@ struct ProfileHeaderView: View {
         }
     }
 }
-
 
 #Preview {
     ProfileHeaderView(user: UserModel.MOCKUSER[0])

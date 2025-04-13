@@ -4,19 +4,16 @@
 //
 //  Created by Zeynep Gökdoğan on 25.03.2025.
 //
-
 import SwiftUI
-import FirebaseAuth
 
 struct SearchView: View {
     @State private var searchText = ""
     @StateObject var viewModel = SearchViewModel()
+    
     var body: some View {
-        
         NavigationStack {
             ScrollView {
                 LazyVStack {
-                    //viewModel.users
                     ForEach(UserModel.MOCKUSER) { user in
                         NavigationLink(value: user) {
                             HStack {
@@ -42,17 +39,20 @@ struct SearchView: View {
                         .buttonStyle(PlainButtonStyle())
                     }
                 }
-                .searchable(text: $searchText)
-                .onChange(of: searchText) { newValue in
-                    viewModel.filterUsers(by: newValue)
-                }
             }
-            .navigationDestination(for: User.self, destination: { user in
-                ProfileView(user: UserModel)
-            })
+            .navigationTitle("Search")
+            .navigationBarTitleDisplayMode(.inline)
+            .searchable(text: $searchText) // 🔄 Buraya taşı
+            .onChange(of: searchText) { newValue in
+                viewModel.filterUsers(by: newValue)
+            }
+            .navigationDestination(for: UserModel.self) { user in
+                ProfileView(user: user)
+            }
         }
     }
 }
+
 
 #Preview {
     SearchView()

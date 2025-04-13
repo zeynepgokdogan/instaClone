@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
-    @StateObject private var registerViewModel = RegisterViewModel()
+    @EnvironmentObject var registerViewModel: RegisterViewModel
     
     
     var body: some View {

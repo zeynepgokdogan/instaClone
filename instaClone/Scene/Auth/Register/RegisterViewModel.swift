@@ -12,6 +12,8 @@ class RegisterViewModel: ObservableObject{
     @Published var email = ""
     @Published var password = ""
     @Published var errorMessage: String = ""
+    @Published var isRegistered = false
+
     
     func createUser() async throws{
         
@@ -30,6 +32,9 @@ class RegisterViewModel: ObservableObject{
         username = ""
         email = ""
         password = ""
+        
+        isRegistered = true
+
     }
     
     func validateEmail() -> Bool {

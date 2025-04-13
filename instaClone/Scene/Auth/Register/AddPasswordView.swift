@@ -29,10 +29,12 @@ struct AddPasswordView: View {
                         do {
                             try await viewModel.createUser()
                         } catch {
+                            viewModel.errorMessage = "Something went wrong: \(error.localizedDescription)"
                             print("Error creating user: \(error.localizedDescription)")
                         }
                     }
                 }
+
 
                 
             }
