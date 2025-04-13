@@ -29,7 +29,7 @@ struct AddUsernameView: View {
                 }
             }
             
-           
+            
         }
         .padding()
         .onAppear {
