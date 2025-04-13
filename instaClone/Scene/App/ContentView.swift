@@ -12,18 +12,18 @@ struct ContentView: View {
     @StateObject var registerViewModel = RegisterViewModel()
     
     var body: some View {
-        NavigationStack {
-            Group {
-                if viewModel.userSession == nil {
-                    LoginView()
-                        .environmentObject(registerViewModel)
-                } else if let currentUser = viewModel.currentUser {
-                    TabBarView(user: currentUser)
-                }
+        Group {
+            if viewModel.userSession == nil {
+                LoginView()
+                    .environmentObject(registerViewModel)
+            } else if let currentUser = viewModel.currentUser {
+                CustomTabBarView(user: currentUser)
             }
         }
     }
 }
+
+
 #Preview {
     ContentView()
 }

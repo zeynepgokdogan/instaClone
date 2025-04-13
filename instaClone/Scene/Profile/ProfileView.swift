@@ -9,21 +9,24 @@ import SwiftUI
 
 struct ProfileView: View {
     let user: UserModel
-    
+
     var posts: [PostModel] {
         PostModel.MOCKPOST.filter { $0.user?.username == user.username }
     }
-    
+
     var body: some View {
-        ScrollView {
-            VStack(spacing:10){
-                ProfileHeaderView(user: user)
-                Divider()
-                PostGridView(posts: posts)
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 10) {
+                    ProfileHeaderView(user: user)
+                    Divider()
+                    PostGridView(posts: posts)
+                }
+                .padding(.horizontal)
             }
+            .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle("Profile")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

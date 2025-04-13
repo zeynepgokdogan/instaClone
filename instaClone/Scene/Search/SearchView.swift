@@ -4,6 +4,7 @@
 //
 //  Created by Zeynep Gökdoğan on 25.03.2025.
 //
+
 import SwiftUI
 
 struct SearchView: View {
@@ -22,12 +23,12 @@ struct SearchView: View {
                                     .frame(width: 60, height: 50)
                                     .clipShape(Circle())
                                     .padding(5)
-                                
+
                                 VStack(alignment: .leading) {
                                     Text(user.username)
                                         .fontWeight(.bold)
                                         .font(.footnote)
-                                    
+
                                     if let fullname = user.fullName {
                                         Text(fullname)
                                             .font(.footnote)
@@ -39,10 +40,11 @@ struct SearchView: View {
                         .buttonStyle(PlainButtonStyle())
                     }
                 }
+                .padding(.horizontal)
             }
             .navigationTitle("Search")
             .navigationBarTitleDisplayMode(.inline)
-            .searchable(text: $searchText) // 🔄 Buraya taşı
+            .searchable(text: $searchText)
             .onChange(of: searchText) { newValue in
                 viewModel.filterUsers(by: newValue)
             }
@@ -52,7 +54,6 @@ struct SearchView: View {
         }
     }
 }
-
 
 #Preview {
     SearchView()
