@@ -14,9 +14,9 @@ struct AddEmailView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            CustomTitle(text: "Add Your Email")
-            CustomSubtitle(text: "You'll use the email to sign in to your account")
-            CustomTextField(placeholder: "Email", text: $viewModel.email)
+            CustomTitle(text: "add_email_title".localized)
+            CustomSubtitle(text:"youll_use_email_to_signin".localized)
+            CustomTextField(placeholder: "email_placeholder".localized, text: $viewModel.email)
             
             if !viewModel.errorMessage.isEmpty {
                 Text(viewModel.errorMessage)
@@ -24,7 +24,7 @@ struct AddEmailView: View {
                     .font(.caption)
             }
             
-            CustomButton(title: "Next") {
+            CustomButton(title: "next_button".localized) {
                 if viewModel.validateEmail() {
                     isNextActive = true
                 }

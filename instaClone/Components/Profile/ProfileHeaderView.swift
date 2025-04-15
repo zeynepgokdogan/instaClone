@@ -28,9 +28,9 @@ struct ProfileHeaderView: View {
                     .clipShape(Circle())
 
                 HStack(spacing: 16) {
-                    UserStatView(value: 10, title: "Posts")
-                    UserStatView(value: 460, title: "Followers")
-                    UserStatView(value: 540, title: "Following")
+                    UserStatView(value: 10, title: "posts".localized)
+                    UserStatView(value: 460, title: "followers".localized)
+                    UserStatView(value: 540, title: "following".localized)
                 }
             }
             .padding(.horizontal)
@@ -54,7 +54,7 @@ struct ProfileHeaderView: View {
             Button {
                 // Edit action
             } label: {
-                Text("Edit Profile")
+                Text("edit_profile".localized)
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundColor(.black)
                     .frame(maxWidth: .infinity)

@@ -14,16 +14,16 @@ struct AddUsernameView: View {
     
     var body: some View {
         VStack(spacing: 20){
-            CustomTitle(text: "Add Your Username")
-            CustomSubtitle(text: "Your username will be used to identify you")
-            CustomTextField(placeholder: "Enter the username" , text: $viewModel.username)
+            CustomTitle(text: "add_username_title".localized)
+            CustomSubtitle(text: "username_identity_info".localized)
+            CustomTextField(placeholder: "username_placeholder".localized , text: $viewModel.username)
             if !viewModel.errorMessage.isEmpty {
                 Text(viewModel.errorMessage)
                     .foregroundColor(.red)
                     .font(.caption)
             }
             
-            CustomButton(title: "Next") {
+            CustomButton(title: "next_button".localized) {
                 if viewModel.validateUsername() {
                     isNextActive = true
                 }

@@ -26,13 +26,13 @@ struct CustomTabBarView: View {
                         VStack {
                             Spacer()
                             
-                            Text("No notifications yet")
+                            Text("no_notifications_yet".localized)
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                             
                             Spacer()
                         }
-                        .navigationTitle("Notifications")
+                        .navigationTitle("notifications".localized)
                         .toolbar {
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 Image(systemName: "bell")
@@ -42,7 +42,7 @@ struct CustomTabBarView: View {
                 case 4:
                     CurrentUserProfile(user: user)
                 default:
-                    Text("Unknown Tab")
+                    Text("unknown_tab".localized)
                 }
             }
             

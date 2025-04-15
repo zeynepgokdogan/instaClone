@@ -25,7 +25,7 @@ class LoginViewModel : ObservableObject{
     
     func validate() -> Bool{
         if email.isEmpty || password.isEmpty{
-            errorMessage = "Please enter all fields"
+            errorMessage = "empty_fields_error".localized
             return false
         }
         return true

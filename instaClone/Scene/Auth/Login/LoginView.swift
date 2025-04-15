@@ -18,8 +18,8 @@ struct LoginView: View {
                 Spacer()
                 Image("logo_text").resizable().frame(width: 250, height: 90).padding(.bottom, 20)
                 
-                CustomTextField(placeholder: "Enter your email", text: $viewModel.email)
-                CustomTextField(placeholder: "Password", text: $viewModel.password, isSecure: true)
+                CustomTextField(placeholder: "email_placeholder".localized, text: $viewModel.email)
+                CustomTextField(placeholder: "password_placeholder".localized, text: $viewModel.password, isSecure: true)
                 
                 if !viewModel.errorMessage.isEmpty {
                     Text(viewModel.errorMessage)
@@ -27,7 +27,7 @@ struct LoginView: View {
                         .font(.caption)
                 }
                 
-                CustomButton(title: "Login") {
+                CustomButton(title: "login_button".localized) {
                     Task {
                         await viewModel.signIn()
                     }
@@ -35,7 +35,7 @@ struct LoginView: View {
                 Button(action: {
                     
                 }) {
-                    Text("Forgot password?")
+                    Text("forgot_password".localized)
                         .foregroundColor(.blue)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                     
@@ -44,7 +44,7 @@ struct LoginView: View {
                 
                 HStack{
                     Rectangle().frame(height: 0.5)
-                    Text("OR").foregroundColor(.gray)
+                    Text("or_seperator".localized).foregroundColor(.gray)
                     Rectangle().frame(height: 0.5)
                 }
                 
@@ -53,7 +53,7 @@ struct LoginView: View {
                 }) {
                     HStack{
                         Image("facebook").resizable().frame(width: 30, height: 30)
-                        Text(.init("Continue with Facebook"))
+                        Text(.init(""))
                             .foregroundColor(.gray)
                             .padding(.leading, 10)
                     }
@@ -62,9 +62,9 @@ struct LoginView: View {
                 Spacer()
                 Divider()
                 HStack {
-                    Text("Don't have an account?").foregroundColor(.gray)
+                    Text("no_account_prompt".localized).foregroundColor(.gray)
                     NavigationLink(destination: AddUsernameView().environmentObject(registerViewModel)) {
-                        Text("Sign Up")
+                        Text("sign_up_button".localized)
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
                     }
@@ -78,4 +78,5 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+           .environmentObject(RegisterViewModel())
 }

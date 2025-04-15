@@ -10,12 +10,12 @@ import SwiftUI
 struct SearchView: View {
     @State private var searchText = ""
     @StateObject var viewModel = SearchViewModel()
-    
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 LazyVStack {
-                    ForEach(UserModel.MOCKUSER) { user in
+                    ForEach(viewModel.filteredUsers) { user in
                         NavigationLink(value: user) {
                             HStack {
                                 Image(user.profilePictureUrl ?? "avatar")
@@ -42,11 +42,14 @@ struct SearchView: View {
                 }
                 .padding(.horizontal)
             }
-            .navigationTitle("Search")
+            .navigationTitle("search_title".localized)
             .navigationBarTitleDisplayMode(.inline)
             .searchable(text: $searchText)
             .onChange(of: searchText) { newValue in
                 viewModel.filterUsers(by: newValue)
+            }
+            .onAppear {
+                viewModel.filterUsers(by: "")
             }
             .navigationDestination(for: UserModel.self) { user in
                 ProfileView(user: user)
@@ -54,6 +57,7 @@ struct SearchView: View {
         }
     }
 }
+
 
 #Preview {
     SearchView()

@@ -24,7 +24,7 @@ struct ProfileView: View {
                 }
                 .padding(.horizontal)
             }
-            .navigationTitle("Profile")
+            .navigationTitle("profile_title".localized)
             .navigationBarTitleDisplayMode(.inline)
         }
     }

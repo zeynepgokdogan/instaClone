@@ -14,7 +14,7 @@ class RegisterViewModel: ObservableObject{
     @Published var errorMessage: String = ""
     @Published var isRegistered = false
 
-    
+    @MainActor
     func createUser() async throws{
         
         guard validateUsername(),
@@ -39,11 +39,11 @@ class RegisterViewModel: ObservableObject{
     
     func validateEmail() -> Bool {
         if email.trimmingCharacters(in: .whitespaces).isEmpty {
-            errorMessage = "Please enter your email."
+            errorMessage = "enter_password_error".localized
             return false
         }
         if !email.contains("@") || !email.contains(".com") {
-            errorMessage = "Please enter a valid email."
+            errorMessage = "invalid_email_error".localized
             return false
         }
         return true
@@ -51,7 +51,7 @@ class RegisterViewModel: ObservableObject{
 
     func validateUsername() -> Bool {
         if username.trimmingCharacters(in: .whitespaces).isEmpty {
-            errorMessage = "Please enter your username."
+            errorMessage = "enter_username_error".localized
             return false
         }
         return true
@@ -59,11 +59,11 @@ class RegisterViewModel: ObservableObject{
 
     func validatePassword() -> Bool {
         if password.trimmingCharacters(in: .whitespaces).isEmpty {
-            errorMessage = "Please enter your password."
+            errorMessage = "enter_password_error".localized
             return false
         }
         if password.count < 6 {
-            errorMessage = "Password must be at least 6 characters long."
+            errorMessage = "password_length_error".localized
             return false
         }
         return true

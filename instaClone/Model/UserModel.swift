@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserModel:  Identifiable,Hashable, Codable {
+struct UserModel:  Identifiable, Hashable, Codable {
     let id: String
     var username: String
     var fullName: String?

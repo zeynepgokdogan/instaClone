@@ -43,7 +43,7 @@ struct FeedCell: View {
                     Text("\(post.caption)").font(.footnote)
                 }
                 .padding(.bottom, 4)
-                Text("14h ago").font(.footnote).foregroundStyle(.gray)
+                Text("time_ago".localized).font(.footnote).foregroundStyle(.gray)
             }
             .padding(.horizontal)
         }

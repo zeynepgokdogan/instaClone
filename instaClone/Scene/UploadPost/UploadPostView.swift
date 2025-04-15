@@ -22,14 +22,14 @@ struct UploadPostView: View {
                     viewModel.postImage = nil
                     tabIndex = 0
                 } label: {
-                    Text("Cancel")
+                    Text("cancel_button".localized)
                 }
                 Spacer()
-                Text("New Post")
+                Text("upload_post_title".localized)
                 Spacer()
                 Button {
                 } label: {
-                    Text("Upload")
+                    Text("upload_button".localized)
                 }
             }
             .padding(.horizontal)
@@ -41,7 +41,7 @@ struct UploadPostView: View {
                         .frame(width: 100, height: 100)
                         .clipped()
                 }
-                TextField("Enter your caption...", text: $caption)
+                TextField("caption_placeholder".localized, text: $caption)
                 
             }
             Spacer()

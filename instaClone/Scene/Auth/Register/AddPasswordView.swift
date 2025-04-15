@@ -14,9 +14,9 @@ struct AddPasswordView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20){
-                CustomTitle(text: "Add Your Password")
-                CustomSubtitle(text: "Your password will be used to protect your account")
-                CustomTextField(placeholder: "Enter your password" , text: $viewModel.password , isSecure: true)
+                CustomTitle(text: "add_password_title".localized)
+                CustomSubtitle(text: "password_protection_info".localized)
+                CustomTextField(placeholder: "password_placeholder".localized , text: $viewModel.password , isSecure: true)
                 
                 if !viewModel.errorMessage.isEmpty {
                     Text(viewModel.errorMessage)
@@ -24,7 +24,7 @@ struct AddPasswordView: View {
                         .font(.caption)
                 }
                 
-                CustomButton(title: "Create Account") {
+                CustomButton(title: "create_account_button".localized) {
                     Task {
                         do {
                             try await viewModel.createUser()

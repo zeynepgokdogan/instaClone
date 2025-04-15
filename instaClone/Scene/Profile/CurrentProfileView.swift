@@ -26,7 +26,7 @@ struct CurrentUserProfile: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Menu {
-                        Button("Sign Out", role: .destructive) {
+                        Button("sign_out_button".localized, role: .destructive) {
                             viewModel.signOut()
                         }
                     } label: {
