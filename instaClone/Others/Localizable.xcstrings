@@ -312,6 +312,23 @@
         }
       }
     },
+    "login_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Giriş Yap"
+          }
+        }
+      }
+    },
     "next_button" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -584,18 +601,35 @@
         }
       }
     },
+    "upload_post_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Post"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeni Post"
+          }
+        }
+      }
+    },
     "username_identity_info" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your username will be used to identify you\""
+            "value" : "Your username will be used to identify you"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Kullanıcı adın, seni tanımlamak için kullanılacak"
           }
         }
