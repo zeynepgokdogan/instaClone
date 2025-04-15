@@ -8,7 +8,20 @@
 
     },
     "%lld likes" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lldlikes"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%lld beğeni"
+          }
+        }
+      }
     },
     "add_email_title" : {
       "extractionState" : "manual",
@@ -242,8 +255,8 @@
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Takip Edenler"
+            "state" : "translated",
+            "value" : "Takipçiler"
           }
         }
       }
@@ -316,16 +329,6 @@
         }
       }
     },
-    "No notifications yet" : {
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hiç bildirim yok"
-          }
-        }
-      }
-    },
     "no_account_prompt" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -343,11 +346,35 @@
         }
       }
     },
-    "Notifications" : {
+    "no_notifications_yet" : {
+      "extractionState" : "manual",
       "localizations" : {
-        "tr" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "No notification yet"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hiç bildirim yok"
+          }
+        }
+      }
+    },
+    "notifications" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Bildirimler"
           }
         }
@@ -512,7 +539,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "10th ago"
+            "value" : "10 h ago"
           }
         },
         "tr" : {
@@ -523,11 +550,18 @@
         }
       }
     },
-    "Unknown Tab" : {
+    "unknown_tab" : {
+      "extractionState" : "manual",
       "localizations" : {
-        "tr" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "Unknown Tab"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
             "value" : "Bilinmeyen Sayfa"
           }
         }
