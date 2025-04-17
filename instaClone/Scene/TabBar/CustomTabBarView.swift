@@ -22,58 +22,29 @@ struct CustomTabBarView: View {
                 case 2:
                     UploadPostView(tabIndex: $selectedIndex)
                 case 3:
-                    NavigationStack {
-                        VStack {
-                            Spacer()
-                            
-                            Text("no_notifications_yet".localized)
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                            
-                            Spacer()
-                        }
-                        .navigationTitle("notifications".localized)
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                Image(systemName: "bell")
-                            }
-                        }
-                    }
+                    NotificationsView()
                 case 4:
-                    CurrentUserProfile(user: user)
+                    ProfileView(user: user)
                 default:
                     Text("unknown_tab".localized)
                 }
             }
-            
+
             Divider()
             
             HStack {
-                tabBarItem(index: 0, icon: "house")
-                tabBarItem(index: 1, icon: "magnifyingglass")
-                tabBarItem(index: 2, icon: "plus.square")
-                tabBarItem(index: 3, icon: "heart")
-                tabBarItem(index: 4, icon: "person")
+                TabBarItem(index: 0, icon: "house", selectedIndex: $selectedIndex)
+                TabBarItem(index: 1, icon: "magnifyingglass", selectedIndex: $selectedIndex)
+                TabBarItem(index: 2, icon: "plus.square", selectedIndex: $selectedIndex)
+                TabBarItem(index: 3, icon: "heart", selectedIndex: $selectedIndex)
+                TabBarItem(index: 4, icon: "person", selectedIndex: $selectedIndex)
             }
             .frame(height: 50)
             .background(Color.white)
             .padding()
-            .padding(.bottom,10)
+            .padding(.bottom, 10)
         }
         .edgesIgnoringSafeArea(.bottom)
-    }
-    
-    private func tabBarItem(index: Int, icon: String) -> some View {
-        Button {
-            selectedIndex = index
-        } label: {
-            Image(systemName: icon)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 24, height: 24)
-                .foregroundColor(selectedIndex == index ? .black : .gray)
-                .frame(maxWidth: .infinity)
-        }
     }
 }
 

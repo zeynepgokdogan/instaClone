@@ -18,17 +18,32 @@ class SearchViewModel: ObservableObject{
     
     @MainActor
     func fetchAllUsers() async throws{
-        self.users = try await UserService.fetchAllUserr()
+        self.users = try await UserService
+            .fetchAllUserr()
         
     }
     
-    func filterUsers(by searchText: String) {
-        if searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+    func filterUsers(
+        by searchText: String
+    ) {
+        if searchText
+            .trimmingCharacters(
+                in: .whitespacesAndNewlines
+            ).isEmpty {
             filteredUsers = []
         } else {
-            filteredUsers = users.filter { user in
-                user.username.lowercased().contains(searchText.lowercased()) ||
-                (user.fullName?.lowercased().contains(searchText.lowercased()) ?? false)
+            filteredUsers = users
+                .filter { user in
+                    user.username
+                        .lowercased()
+                        .contains(
+                            searchText.lowercased()
+                        ) ||
+                    (
+                        user.fullName?.lowercased().contains(
+                            searchText.lowercased()
+                        ) ?? false
+                    )
             }
         }
     }

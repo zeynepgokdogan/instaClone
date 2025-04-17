@@ -16,18 +16,22 @@ class ContentViewModel: ObservableObject {
     @Published var currentUser: UserModel?
     
     init(){
-        setUpUserSubscribers( )
+        setUpUserSubscribers()
     }
     
     func setUpUserSubscribers() {
         service.$userSession
             .sink{ [weak self] userSession in self?.userSession = userSession
-        }
-        .store(in: &cancellables)
+            }
+            .store(
+                in: &cancellables
+            )
         
         service.$currentUser
             .sink{ [weak self] currentUser in self?.currentUser = currentUser
-        }
-        .store(in: &cancellables)
+            }
+            .store(
+                in: &cancellables
+            )
     }
 }

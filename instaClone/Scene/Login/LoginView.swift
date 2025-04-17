@@ -63,7 +63,7 @@ struct LoginView: View {
                 Divider()
                 HStack {
                     Text("no_account_prompt".localized).foregroundColor(.gray)
-                    NavigationLink(destination: AddUsernameView().environmentObject(registerViewModel)) {
+                    NavigationLink(destination: AddUsernameView(viewModel: registerViewModel)) {
                         Text("sign_up_button".localized)
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
