@@ -14,8 +14,7 @@ struct ContentView: View {
     var body: some View {
         Group {
             if viewModel.userSession == nil {
-                LoginView()
-                    .environmentObject(registerViewModel)
+                LoginView(registerViewModel: registerViewModel) 
             } else if let currentUser = viewModel.currentUser {
                 CustomTabBarView(user: currentUser)
             }

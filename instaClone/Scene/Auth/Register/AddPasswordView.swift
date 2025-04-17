@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct AddPasswordView: View {
-    @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: RegisterViewModel
+    @ObservedObject var viewModel: RegisterViewModel
     
     var body: some View {
         NavigationStack {
@@ -34,9 +33,6 @@ struct AddPasswordView: View {
                         }
                     }
                 }
-
-
-                
             }
             .padding()
             .onAppear {
@@ -47,5 +43,5 @@ struct AddPasswordView: View {
 }
 
 #Preview {
-    AddPasswordView().environmentObject(RegisterViewModel())
+    AddPasswordView(viewModel: RegisterViewModel())
 }

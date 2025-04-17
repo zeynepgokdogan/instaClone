@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct AddEmailView: View {
-    @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var viewModel: RegisterViewModel
+    @ObservedObject var viewModel: RegisterViewModel
     @State private var isNextActive = false
     
     var body: some View {
@@ -35,11 +34,11 @@ struct AddEmailView: View {
             viewModel.errorMessage = ""
         }
         .navigationDestination(isPresented: $isNextActive) {
-            AddPasswordView().environmentObject(viewModel)
+            AddPasswordView(viewModel: viewModel)
         }
     }
 }
 
 #Preview {
-    AddEmailView().environmentObject(RegisterViewModel())
+    AddEmailView(viewModel: RegisterViewModel())
 }

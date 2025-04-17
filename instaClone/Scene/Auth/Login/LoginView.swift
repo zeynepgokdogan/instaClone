@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var viewModel = LoginViewModel()
-    @EnvironmentObject var registerViewModel: RegisterViewModel
+    @ObservedObject var registerViewModel: RegisterViewModel
     
     
     var body: some View {
@@ -77,6 +77,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
-           .environmentObject(RegisterViewModel())
+    LoginView( registerViewModel: RegisterViewModel())
 }
